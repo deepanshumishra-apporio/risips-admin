@@ -1,0 +1,107 @@
+@import 'tailwindcss';
+
+/*
+ * RiSips admin design tokens. The brand blues are the same values the mobile
+ * app draws its mark in (see mobile-app/scripts/generate-icons.mjs), so the
+ * portal and the investor app read as one product.
+ *
+ * The shell is a light chrome: white sidebar and content separated by hairline
+ * borders, with fills reserved for state rather than decoration.
+ */
+@theme {
+  --color-canvas: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #f6f8fa;
+  --color-line: #e3e7ed;
+  --color-line-strong: #d0d7e0;
+
+  --color-ink: #0b1524;
+  --color-ink-soft: #475569;
+  --color-ink-muted: #6b7787;
+
+  --color-brand: #0a71da;
+  --color-brand-deep: #0160c2;
+  --color-brand-soft: #eaf3fd;
+  --color-navy: #020b1b;
+  --color-navy-soft: #0d1b30;
+
+  /* The mark's point. The brand sheet's two greens: the darker one is for
+     paper, the lighter one for wherever the ground is dark. */
+  --color-mark-point: #1b6b4a;
+  --color-mark-point-inverse: #2eb77f;
+
+  --color-success: #12a150;
+  --color-success-soft: #e7f7ee;
+  --color-warn: #c2870a;
+  --color-warn-soft: #fdf4e0;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fdeceb;
+  --color-violet: #7c3aed;
+  --color-violet-soft: #f2ecfe;
+  --color-teal: #0d9488;
+  --color-amber: #f59e0b;
+
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  --radius-card: 10px;
+
+  /* Shell metrics — the sidebar rail and the header share one grid. */
+  --shell-header: 60px;
+  --shell-sidebar: 252px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-soft);
+  }
+
+  /* Allocation sliders paint their own track gradient; the thumb is styled
+     once here so every slider in the curation flow looks identical. */
+  input[type='range']::-webkit-slider-thumb {
+    appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 9999px;
+    border: 2px solid #fff;
+    background: currentColor;
+    box-shadow: 0 1px 4px rgba(11, 21, 36, 0.28);
+    cursor: pointer;
+  }
+
+  input[type='range']::-moz-range-thumb {
+    height: 14px;
+    width: 14px;
+    border-radius: 9999px;
+    border: 2px solid #fff;
+    background: currentColor;
+    box-shadow: 0 1px 4px rgba(11, 21, 36, 0.28);
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line-strong) transparent;
+  }
+}
