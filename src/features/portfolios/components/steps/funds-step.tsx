@@ -8,7 +8,6 @@ import { Tabs } from '@/components/ui/tabs';
 import { AssetColor } from '@/data/asset-colors';
 import { Funds } from '@/data/funds';
 import type { PortfolioDraftApi } from '@/features/portfolios/use-portfolio-draft';
-import type { AssetClass } from '@/types/portfolio.types';
 import { cn } from '@/utils/cn';
 
 const FilterTabs = ['All', 'Equity', 'Debt', 'Gold'] as const;
@@ -16,7 +15,7 @@ type FilterTab = (typeof FilterTabs)[number];
 
 /** Fund picker on the left, weighted basket on the right. Weights are held per
  *  fund because trail commission and RTA reporting land at scheme level. */
-export function FundsStep({ draft, check, toggleFund, setFundWeight }: PortfolioDraftApi): React.JSX.Element {
+export function FundsStep({ draft, check, toggleFund, removeFund, setFundWeight }: PortfolioDraftApi): React.JSX.Element {
   const [filter, setFilter] = useState<FilterTab>('All');
   const [query, setQuery] = useState('');
 
@@ -137,7 +136,7 @@ export function FundsStep({ draft, check, toggleFund, setFundWeight }: Portfolio
                   </span>
                   <button
                     type="button"
-                    onClick={() => toggleFund({ ...fundToPicker(fund.fundId, fund.assetClass) })}
+                    onClick={() => removeFund(fund.fundId)}
                     aria-label={`Remove ${fund.name}`}
                     className="shrink-0 rounded-md p-1 text-ink-muted hover:bg-danger-soft hover:text-danger"
                   >
@@ -150,23 +149,5 @@ export function FundsStep({ draft, check, toggleFund, setFundWeight }: Portfolio
         </div>
       </section>
     </div>
-  );
-}
-
-/** Removal only needs the id; the picker signature takes a full fund. */
-function fundToPicker(fundId: string, assetClass: AssetClass) {
-  const fund = Funds.find((entry) => entry.id === fundId);
-
-  return (
-    fund ?? {
-      id: fundId,
-      name: '',
-      house: '',
-      assetClass,
-      category: '',
-      expenseRatio: 0,
-      returns3y: 0,
-      rating: 0,
-    }
   );
 }

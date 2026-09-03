@@ -37,6 +37,7 @@ export type PortfolioDraftApi = {
   setRiskProfile: (profile: RiskProfile) => void;
   setAssetWeight: (assetClass: AssetClass, weight: number) => void;
   toggleFund: (fund: Fund) => void;
+  removeFund: (fundId: string) => void;
   setFundWeight: (fundId: string, weight: number) => void;
 };
 
@@ -81,6 +82,10 @@ export function usePortfolioDraft(initial: PortfolioDraft = EmptyDraft): Portfol
     });
   }, []);
 
+  const removeFund = useCallback((fundId: string): void => {
+    setDraft((current) => ({ ...current, funds: current.funds.filter((entry) => entry.fundId !== fundId) }));
+  }, []);
+
   const setFundWeight = useCallback((fundId: string, weight: number): void => {
     setDraft((current) => ({
       ...current,
@@ -108,5 +113,5 @@ export function usePortfolioDraft(initial: PortfolioDraft = EmptyDraft): Portfol
     };
   }, [draft.allocation, draft.funds]);
 
-  return { draft, check, update, setRiskProfile, setAssetWeight, toggleFund, setFundWeight };
+  return { draft, check, update, setRiskProfile, setAssetWeight, toggleFund, removeFund, setFundWeight };
 }

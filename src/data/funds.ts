@@ -10,6 +10,7 @@ export const Funds: Fund[] = [
     expenseRatio: 0.63,
     returns3y: 21.4,
     rating: 5,
+    nav: 78.42,
   },
   {
     id: 'f-02',
@@ -20,6 +21,7 @@ export const Funds: Fund[] = [
     expenseRatio: 0.78,
     returns3y: 26.1,
     rating: 5,
+    nav: 196.35,
   },
   {
     id: 'f-03',
@@ -30,6 +32,7 @@ export const Funds: Fund[] = [
     expenseRatio: 0.92,
     returns3y: 18.7,
     rating: 4,
+    nav: 112.68,
   },
   {
     id: 'f-04',
@@ -40,6 +43,7 @@ export const Funds: Fund[] = [
     expenseRatio: 0.68,
     returns3y: 29.8,
     rating: 4,
+    nav: 168.94,
   },
   {
     id: 'f-05',
@@ -50,6 +54,7 @@ export const Funds: Fund[] = [
     expenseRatio: 0.2,
     returns3y: 15.2,
     rating: 4,
+    nav: 158.21,
   },
   {
     id: 'f-06',
@@ -60,6 +65,7 @@ export const Funds: Fund[] = [
     expenseRatio: 0.34,
     returns3y: 7.6,
     rating: 4,
+    nav: 34.76,
   },
   {
     id: 'f-07',
@@ -70,6 +76,7 @@ export const Funds: Fund[] = [
     expenseRatio: 0.38,
     returns3y: 7.2,
     rating: 5,
+    nav: 32.19,
   },
   {
     id: 'f-08',
@@ -80,6 +87,7 @@ export const Funds: Fund[] = [
     expenseRatio: 0.39,
     returns3y: 7.1,
     rating: 4,
+    nav: 29.84,
   },
   {
     id: 'f-09',
@@ -90,6 +98,7 @@ export const Funds: Fund[] = [
     expenseRatio: 0.21,
     returns3y: 6.8,
     rating: 4,
+    nav: 412.55,
   },
   {
     id: 'f-10',
@@ -100,6 +109,7 @@ export const Funds: Fund[] = [
     expenseRatio: 0.14,
     returns3y: 16.9,
     rating: 4,
+    nav: 38.62,
   },
   {
     id: 'f-11',
@@ -110,5 +120,6 @@ export const Funds: Fund[] = [
     expenseRatio: 0.1,
     returns3y: 16.4,
     rating: 4,
+    nav: 29.47,
   },
 ];

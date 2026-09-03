@@ -24,6 +24,8 @@ export type Fund = {
   expenseRatio: number;
   returns3y: number;
   rating: number;
+  /** Latest declared NAV, used to express a holding in units. */
+  nav: number;
 };
 
 /** A fund inside a portfolio basket, weighted at the individual-fund level
